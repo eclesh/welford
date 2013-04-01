@@ -2,8 +2,8 @@ welford
 =======
 
 Package welford implements a one-pass algorithm for computing mean and
-variance. The algorithm is attributed to B.P. Welford by Knuth in
-The Art Of Computer Programming, Volume 2.
+variance. Knuth attributes this algorithm to B.P. Welford in The Art
+Of Computer Programming, Volume 2.
 
 For an explanation of why you might want to calculate variance this
 way, see http://www.johndcook.com/standard_deviation.html and
