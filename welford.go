@@ -1,7 +1,7 @@
 // Package stats implements Welford's one-pass algorithm for computing
 // the mean and variance of a set of numbers. For more information see
 // Knuth (TAOCP Vol 2, 3rd ed, pg 232).
-package stats
+package welford
 
 import (
 	"math"
