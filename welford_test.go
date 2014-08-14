@@ -31,7 +31,34 @@ func TestNormal(t *testing.T) {
 	if math.Abs(s.Mean()) > 0.001 {
 		t.Fatalf("mean: expected 0.0, got %f\n", s.Mean())
 	}
+	if s.Variance()-1 > 0.001 {
+		t.Fatalf("variance: expected 1.0, got %f\n", s.Variance())
+	}
 	if s.Stddev()-1 > 0.001 {
 		t.Fatalf("stddev: expected 1.0, got %f\n", s.Stddev())
+	}
+}
+
+func TestVariance(t *testing.T) {
+	s := New()
+	if s.Variance() != 0 {
+		t.Fatalf("variance: expected 0, got %f\n", s.Variance())
+	}
+}
+
+func TestReset(t *testing.T) {
+	s := New()
+	for i := 0; i < 1000000; i++ {
+		s.Add(rand.NormFloat64())
+	}
+	s.Reset()
+	if s.Mean() != 0 {
+		t.Fatalf("mean: expected 0.0, got %f\n", s.Mean())
+	}
+	if s.Variance() != 0 {
+		t.Fatalf("variance: expected 0.0, got %f\n", s.Variance())
+	}
+	if s.Stddev() != 0 {
+		t.Fatalf("stddev: expected 0.0, got %f\n", s.Stddev())
 	}
 }
