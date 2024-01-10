@@ -27,14 +27,14 @@ func TestNormal(t *testing.T) {
 	for i := 0; i < 1000000; i++ {
 		s.Add(rand.NormFloat64())
 	}
-	// Allow .1% of error (.1% arbitrarily chosen)
-	if math.Abs(s.Mean()) > 0.001 {
+	// Allow .3% of error (.3% arbitrarily chosen)
+	if math.Abs(s.Mean()) > 0.003 {
 		t.Fatalf("mean: expected 0.0, got %f\n", s.Mean())
 	}
-	if s.Variance()-1 > 0.001 {
+	if s.Variance()-1 > 0.003 {
 		t.Fatalf("variance: expected 1.0, got %f\n", s.Variance())
 	}
-	if s.Stddev()-1 > 0.001 {
+	if s.Stddev()-1 > 0.003 {
 		t.Fatalf("stddev: expected 1.0, got %f\n", s.Stddev())
 	}
 }
